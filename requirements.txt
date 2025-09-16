@@ -1,1 +1,3 @@
 scipy
+alpha-vantage
+python-dotenv
