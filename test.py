@@ -1,5 +1,5 @@
 import math
-import scipy
+from scipy.stats import norm
 
 S = 42  # underlying price ie price of stock rn
 K = 40  # strike price ie right to buy the stock at $
@@ -13,3 +13,8 @@ print(d1)
 d2 = (d1 - (vol * math.sqrt(T)))
 print(d2)
 
+# option prices
+C = (S * norm.cdf(d1) - K * math.exp(-r * T) * norm.cdf(d2))  # call option price
+print(C)
+P = (K * math.exp(-r * T) * norm.cdf(-d2) - S * norm.cdf(-d1))  # put option price
+print(P)
